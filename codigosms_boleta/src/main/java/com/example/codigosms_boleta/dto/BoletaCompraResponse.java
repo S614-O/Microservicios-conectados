@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class BoletaCompraResponse {
-private Long compraId;
+    private Long compraId;
     private Long carritoId;
     private String usuario;
     private BigDecimal montoTotal;
