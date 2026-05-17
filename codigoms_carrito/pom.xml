@@ -12,11 +12,10 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.sting</groupId>
+    <groupId>com.servicio</groupId>
     <artifactId>codigoms-carrito</artifactId>
     <version>1.0.0</version>
     <name>codigoms-carrito</name>
-    <description>Microservicio Carrito: gestiona carritos e items. Llama a catalogo via FeignClient.</description>
 
     <properties>
         <java.version>21</java.version>
@@ -36,7 +35,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
-        <!-- FeignClient: llama a codigoms_catalogo por HTTP -->
+        <!-- Uso de FeignClient-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>

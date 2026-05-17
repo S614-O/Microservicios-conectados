@@ -12,11 +12,10 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.sting</groupId>
+    <groupId>com.servicio</groupId>
     <artifactId>codigoms-pedidos</artifactId>
     <version>1.0.0</version>
     <name>codigoms-pedidos</name>
-    <description>Microservicio Pedidos. Llama a catalogo via FeignClient para verificar libros.</description>
 
     <properties>
         <java.version>21</java.version>
