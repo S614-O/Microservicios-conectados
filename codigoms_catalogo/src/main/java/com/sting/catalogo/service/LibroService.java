@@ -1,17 +1,19 @@
 package com.sting.catalogo.service;
 
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
 import com.sting.catalogo.dto.LibroRequestDTO;
 import com.sting.catalogo.dto.LibroResponseDTO;
 import com.sting.catalogo.model.Categoria;
 import com.sting.catalogo.model.Libro;
 import com.sting.catalogo.repository.CategoriaRepository;
 import com.sting.catalogo.repository.LibroRepository;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @Service

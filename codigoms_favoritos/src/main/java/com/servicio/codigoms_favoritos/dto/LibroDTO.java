@@ -1,4 +1,4 @@
-package com.soto.codigoms_favoritos.dto;
+package com.servicio.codigoms_favoritos.dto;
 
 import java.math.BigDecimal;
 
@@ -11,3 +11,4 @@ public class LibroDTO {
     private String autor;
     private BigDecimal precio;
 }
+
