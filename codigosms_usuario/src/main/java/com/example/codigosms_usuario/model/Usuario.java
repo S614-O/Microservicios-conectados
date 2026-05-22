@@ -10,14 +10,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Builder
 @Entity
 @Table(name = "usuarios") // Evita conflictos con palabras reservadas
 @Data // De Lombok
-@NoArgsConstructor
-
+@NoArgsConstructor // Para JPA 
+@AllArgsConstructor //Para el Builder
 public class Usuario {
 
     @Id

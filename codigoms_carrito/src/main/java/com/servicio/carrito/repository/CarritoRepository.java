@@ -9,4 +9,8 @@ import com.servicio.carrito.model.Carrito;
 
 public interface CarritoRepository extends JpaRepository<Carrito, Long> {
     List<Carrito> findByUsuario(String usuario);
+
+    
+
+
 }

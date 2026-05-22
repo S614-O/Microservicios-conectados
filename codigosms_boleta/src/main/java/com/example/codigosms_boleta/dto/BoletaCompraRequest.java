@@ -22,7 +22,7 @@ public class BoletaCompraRequest {
     @NotBlank(message = "El nombre de usuario es obligatorio")
     private String usuario;
 
-    @NotBlank(message= "El metodo de pago es obligatorio")
+    @NotNull(message= "El metodo de pago es obligatorio")
     private MetodoPago metodoPago;
 
 }

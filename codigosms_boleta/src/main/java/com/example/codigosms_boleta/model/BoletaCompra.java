@@ -11,14 +11,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Builder
 @Entity
-@Table(name = "compras") // Evita conflictos con palabras reservadas
+@Table(name = "compras") 
 @Data // De Lombok
 @NoArgsConstructor
-
+@AllArgsConstructor
 public class BoletaCompra {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -49,5 +52,8 @@ public class BoletaCompra {
     protected void onCreate() {
         this.fechaCompra = LocalDateTime.now();
         if (this.estado == null) this.estado = EstadoCompra.PENDIENTE;
+        this.estado=EstadoCompra.COMPLETADA;
     }
+    
+
 }
