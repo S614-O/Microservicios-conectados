@@ -1,6 +1,11 @@
 package com.example.codigosms_usuario.controller;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +18,7 @@ import com.example.codigosms_usuario.service.UsuarioService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 @RestController
-@RequestMapping("/api/usuariosd")
+@RequestMapping("/api/usuarios")
 @RequiredArgsConstructor
 public class UsuarioController {
     private final UsuarioService service;
@@ -23,8 +28,26 @@ public class UsuarioController {
         return ResponseEntity.status(201).body(service.crearUsuario(dto));
     }
 
+@GetMapping("/{id}")
+public ResponseEntity<UsuarioResponse> obtenerPorId(@PathVariable Long id) {
+    UsuarioResponse response = service.obtenerAnuncioPorId(id);
+    return ResponseEntity.ok(response);
 }
-/*        @PostMapping
-    public ResponseEntity<ResenaResponse> crear(@Valid @RequestBody ResenaRequest dto) {
-        return ResponseEntity.status(201).body(resenaService.crear(dto));
-    } */
+
+   @GetMapping
+    public ResponseEntity<Page<UsuarioResponse>> obtenerTodos(
+            @org.springframework.data.web.PageableDefault(size = 10) Pageable pageable) {
+        return ResponseEntity.ok(service.listarUsuarios(pageable));
+    }
+
+
+
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+        service.eliminarAnuncio(id);
+        return ResponseEntity.noContent().build();
+    }
+    
+}

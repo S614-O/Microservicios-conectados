@@ -2,6 +2,8 @@ package com.example.codigosms_boleta.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,11 +24,23 @@ private final BoletaCompraService boletaCompraService;
 
     @PostMapping
     public ResponseEntity<BoletaCompraResponse> crearCompra(@Valid @RequestBody BoletaCompraRequest request) {
-        // Llamamos al servicio para procesar la lógica de negocio
         BoletaCompraResponse nuevaBoleta = boletaCompraService.crearBoleta(request);
-        
-        // Retornamos la respuesta con estado 201 (Created)
         return new ResponseEntity<>(nuevaBoleta, HttpStatus.CREATED);
+    
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<BoletaCompraResponse> obtenerPorId(@PathVariable Long id) {
+        BoletaCompraResponse response = boletaCompraService.obtenerBoletaPorId(id)
+        return ResponseEntity.ok(response);
+}
+
+    
+
+
+
+
+
+
     }
 
 
