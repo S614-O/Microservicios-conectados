@@ -30,14 +30,15 @@ public class UsuarioController {
 
 @GetMapping("/{id}")
 public ResponseEntity<UsuarioResponse> obtenerPorId(@PathVariable Long id) {
-    UsuarioResponse response = service.obtenerAnuncioPorId(id);
+    UsuarioResponse response = service.obtenerUsuarioPorId(id);
     return ResponseEntity.ok(response);
 }
 
-   @GetMapping
-    public ResponseEntity<Page<UsuarioResponse>> obtenerTodos(
-            @org.springframework.data.web.PageableDefault(size = 10) Pageable pageable) {
-        return ResponseEntity.ok(service.listarUsuarios(pageable));
+  @GetMapping("/obtener")
+    public ResponseEntity<Page<UsuarioResponse>> obtenerTodo(Pageable pageable){
+        Page<UsuarioResponse> v = service.listarUsuarios(pageable);
+        return ResponseEntity.ok(v);
+    
     }
 
 
@@ -46,7 +47,7 @@ public ResponseEntity<UsuarioResponse> obtenerPorId(@PathVariable Long id) {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
-        service.eliminarAnuncio(id);
+        service.eliminarUsuario(id);
         return ResponseEntity.noContent().build();
     }
     

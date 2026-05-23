@@ -30,7 +30,6 @@ public class AnuncioController {
         return ResponseEntity.status(201).body(anuncioService.crearAnuncio(dto));
     }
 
-    // Cambiado a Page para soportar la paginación eficiente que definimos
     @GetMapping
     public ResponseEntity<Page<AnuncioResponse>> obtenerTodos(
             @org.springframework.data.web.PageableDefault(size = 10) Pageable pageable) {

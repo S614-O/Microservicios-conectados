@@ -1,5 +1,7 @@
 package com.example.codigosms_usuario.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.example.codigosms_usuario.dto.UsuarioRequest;
@@ -46,7 +48,35 @@ public class UsuarioService {
         
 
 
+        public Page<UsuarioResponse> listarUsuarios (Pageable pageable){
+            Page<Usuario> page= usuarioRepository.findAll(pageable);
+            return page.map(this::mapADTO);
+        }
+
+@Transactional
+    public void eliminarUsuario(Long id) {
+        if (!usuarioRepository.existsById(id)) {
+            throw new jakarta.persistence.EntityNotFoundException(
+                "No se puede eliminar: El anuncio con ID " + id + " no existe"
+            );
+        }
+        usuarioRepository.deleteById(id);
+        log.info("Anuncio eliminado exitosamente con id={}", id);
+    }
+
 
         
+public UsuarioResponse obtenerUsuarioPorId(Long id) {
+        return usuarioRepository.findById(id)
+                .map(this::mapADTO)
+                .orElseThrow(() -> new jakarta.persistence.EntityNotFoundException(
+                    "Anuncio con ID " + id + " no fue encontrado"
+                ));
+    }
+
+
+
+
+
 
 }

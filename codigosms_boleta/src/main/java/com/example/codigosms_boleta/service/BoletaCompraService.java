@@ -54,6 +54,25 @@ public class BoletaCompraService {
     }
 
     @Transactional
+    public BoletaCompraResponse obtenerBoletaPorId(Long id) {
+        return compraRepository.findById(id)
+                .map(this::mapADTO)
+                .orElseThrow(() -> new jakarta.persistence.EntityNotFoundException(
+                    "Anuncio con ID " + id + " no fue encontrado"
+                ));
+    }
+
+
+    public void eliminarUsuario(Long id) {
+        compraRepository.deleteById(id);
+       
+    }
+
+
+    
+
+
+    @Transactional
     public Page<BoletaCompraResponse> listarBoletas(Pageable pageable){
         Page<BoletaCompra> paginaBoleta = compraRepository.findAll(pageable);
         return paginaBoleta.map(this::mapADTO);
@@ -64,19 +83,17 @@ public class BoletaCompraService {
     
 
 
+
     private void validarCarrito(CarritoDTO carrito, String usuarioRequest) {
     // 1. Validar que el microservicio de carrito devolvió información
     if (carrito == null) {
         throw new RuntimeException("Error: El carrito no pudo ser recuperado.");
     }
 
-    // 2. Validar que el carrito tenga items (no se puede comprar nada)
     if (carrito.getItems() == null || carrito.getItems().isEmpty()) {
         throw new RuntimeException("Error: El carrito está vacío.");
     }
 
-    // 3. Validar seguridad: que el usuario del carrito sea el mismo que el del request
-    // Esto evita que un usuario intente pagar el carrito de otra persona
     if (!carrito.getUsuario().equalsIgnoreCase(usuarioRequest)) {
         throw new RuntimeException("Error: El carrito no pertenece al usuario indicado.");
     }
