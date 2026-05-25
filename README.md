@@ -13,18 +13,16 @@ Este repositorio contiene el desarrollo del sistema distribuido de gestión de i
 
 ##  Mapa de Ecosistema de Microservicios 
 
-El sistema se compone de módulos satélites independientes que se comunican de forma síncrona en tiempo real utilizando el catálogo central como núcleo de datos:
-| :--- | :---: | :--- | :---: | :--- |
-| `codigoms_pedido` | 8081 | `pedido_bd` | FeignClient | Pedido |
-| `codigoms_catalogo` | 8082 | `catalogo_bd` | Ninguno | Categoría, Libro |
-| `codigoms_carrito` | 8083 | `carrito_bd` | FeignClient | ItemCarrito, Carrito |
-| `codigoms_resenas` | 8084 | `resenas_bd` | FeignClient | Resena |
-| `codigoms_favoritos` | 8085 | `favoritos_bd` | WebClient | Favorito |
-| `codigoms_cupones` | 8086 | `cupones_bd` | FeignClient | Cupón |
-| `codigoms_wishlist` | 8086 | `wishlist_bd` | WebClient | Estados WishList, WishList |
-| `codigoms_usuario` | 8090 | `usuario_bd` | FeignClient | Usuario |
-| `codigoms_boleta` | 8090 | `boleta_bd` | FeignClient | EstadoCompra, MetodoPago, BoletaCompra |
-| `codigoms_anuncios` | 8092 | `anuncios_bd` | FeignClient | Anuncio |
+* **Catálogo:** Puerto `8082` 
+* **Carrito:** Puerto `8083` 
+* **Pedidos:** Puerto `8081` 
+* **Reseñas:** Puerto `8084` 
+* **Favoritos:** Puerto `8085` 
+* **Cupones:** Puerto `8086` 
+* **Wishlist:** Puerto `8086` 
+* **Usuario:** Puerto `8090` 
+* **Boleta:** Puerto `8091` 
+* **Anuncios:** Puerto `8092` 
 
 ---
 
