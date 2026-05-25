@@ -1,6 +1,6 @@
-# Sistema de Gestión en Base a Microservicios — Book Point 📚 [cite: 30]
+# Sistema de Gestión en Base a Microservicios — Book Point
 
-Este repositorio contiene el desarrollo del sistema distribuido de gestión de inventario, biblioteca y ventas para la empresa **Book Point**.La plataforma está diseñada bajo una arquitectura de microservicios, aislando las responsabilidades del negocio en componentes independientes y desacoplados para garantizar una alta disponibilidad, seguridad y escalabilidad[cite: 43].
+Este repositorio contiene el desarrollo del sistema distribuido de gestión de inventario, biblioteca y ventas para la empresa **Book Point**.La plataforma está diseñada bajo una arquitectura de microservicios, aislando las responsabilidades del negocio en componentes independientes y desacoplados para garantizar una alta disponibilidad, seguridad y escalabilidad.
 
 ##  Arquitectura y Tecnologías
 * **Backend:** Java con Spring Boot.
