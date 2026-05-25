@@ -35,4 +35,6 @@ Para levantar el ecosistema completo en tu entorno de desarrollo, sigue estos pa
 3. **Orden de Arranque Recomendado (vía Postman/IDE):**
    * Levantar primero el servicio núcleo: `codigoms_catalogo` (Puerto 8082).
    * Levantar el resto de módulos de forma paralela conforme al orden de puertos y pruebas estipulado.
+   
+   
 (EN CASO DE QUE VISUAL STUDIO CODE NO DETECTE EL MAIN DE ALGÚN MICRO SERVICIO IR A LA CARPETA RAIZ DEL MICRO SERVICIO Y EJECUTAR EN LA TERMINA mvn spring-boot:run)
