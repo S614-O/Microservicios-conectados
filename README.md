@@ -37,4 +37,4 @@ Para levantar el ecosistema completo en tu entorno de desarrollo, sigue estos pa
    * Levantar el resto de módulos de forma paralela conforme al orden de puertos y pruebas estipulado.
    
    
-En caso de que Visual Studio Code no detecte el main de algún microservicio ir a la carpeta raiz del microservicio y ejecutar en la terminal mvn spring-boot:run
+En caso de que Visual Studio Code no detecte el main de algún microservicio ir a la carpeta raiz del microservicio y ejecutar en la terminal mvn spring-boot:run (microservicios codigoms_boleta y codigoms_usuario)
