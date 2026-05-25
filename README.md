@@ -14,7 +14,7 @@ Este repositorio contiene el desarrollo del sistema distribuido de gestión de i
 ##  Mapa de Ecosistema de Microservicios 
 
 El sistema se compone de módulos satélites independientes que se comunican de forma síncrona en tiempo real utilizando el catálogo central como núcleo de datos:
-   
+| :--- | :---: | :--- | :---: | :--- |
 | `codigoms_pedido` | 8081 | `pedido_bd` | FeignClient | Pedido |
 | `codigoms_catalogo` | 8082 | `catalogo_bd` | Ninguno | Categoría, Libro |
 | `codigoms_carrito` | 8083 | `carrito_bd` | FeignClient | ItemCarrito, Carrito |
