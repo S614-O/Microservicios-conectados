@@ -12,7 +12,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.sting</groupId>
+    <groupId>com.servicio</groupId>
     <artifactId>codigoms-carrito</artifactId>
     <version>1.0.0</version>
     <name>codigoms-carrito</name>
