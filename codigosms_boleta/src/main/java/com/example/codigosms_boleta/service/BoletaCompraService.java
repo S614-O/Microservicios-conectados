@@ -25,32 +25,37 @@ import lombok.extern.slf4j.Slf4j;
 
 public class BoletaCompraService {
     private final BoletaCompraRepository compraRepository;
-    
     private final CarritoClient carritoClient;
 
+
+
+    
     @Transactional
     public BoletaCompraResponse crearBoleta(BoletaCompraRequest request) {
         log.info("Registrando compra...");
         CarritoDTO carrito = carritoClient.obtenerCarritoPorId(request.getCarritoId());
-    
-        validarCarrito(carrito, request.getUsuario());
-        // Si la validación pasa, continuamos con el cálculo del total
-   
+
          BigDecimal totalCalculado = carrito.getItems().stream()
             .map(item -> item.getPrecioUnitario().multiply(new BigDecimal(item.getCantidad())))
             .reduce(BigDecimal.ZERO, BigDecimal::add);
 
-    // Crear y guardar la entidad Compra
+
     BoletaCompra nuevaCompra = new BoletaCompra();
     nuevaCompra.setUsuario(request.getUsuario());
     nuevaCompra.setCarritoId(carrito.getId());
     nuevaCompra.setMontoTotal(totalCalculado);
     nuevaCompra.setMetodoPago(request.getMetodoPago());
-    nuevaCompra.setEstado(EstadoCompra.PENDIENTE);
+    nuevaCompra.setEstado(EstadoCompra.COMPLETADA);
     nuevaCompra.setFechaCompra(LocalDateTime.now());
 
     return mapADTO(compraRepository.save(nuevaCompra));
         
+    }
+
+    @Transactional
+    public Page<BoletaCompraResponse> listarBoletas(Pageable pageable){
+        Page<BoletaCompra> paginaBoleta = compraRepository.findAll(pageable);
+        return paginaBoleta.map(this::mapADTO);
     }
 
     @Transactional
@@ -68,67 +73,24 @@ public class BoletaCompraService {
        
     }
 
-
     
-
-
-    @Transactional
-    public Page<BoletaCompraResponse> listarBoletas(Pageable pageable){
-        Page<BoletaCompra> paginaBoleta = compraRepository.findAll(pageable);
-        return paginaBoleta.map(this::mapADTO);
-    }
-
-
-
+private BoletaCompraResponse mapADTO(BoletaCompra compra){
+ BoletaCompraResponse response = new BoletaCompraResponse();
+    response.setCompraId(compra.getId());
+    response.setUsuario(compra.getUsuario());
+    response.setMontoTotal(compra.getMontoTotal());
+    response.setEstado(compra.getEstado().name());
+    response.setFechaCompra(compra.getFechaCompra());
     
-
-
-
-    private void validarCarrito(CarritoDTO carrito, String usuarioRequest) {
-    // 1. Validar que el microservicio de carrito devolvió información
-    if (carrito == null) {
-        throw new RuntimeException("Error: El carrito no pudo ser recuperado.");
-    }
-
-    if (carrito.getItems() == null || carrito.getItems().isEmpty()) {
-        throw new RuntimeException("Error: El carrito está vacío.");
-    }
-
-    if (!carrito.getUsuario().equalsIgnoreCase(usuarioRequest)) {
-        throw new RuntimeException("Error: El carrito no pertenece al usuario indicado.");
-    }
+    response.setCarritoId(compra.getCarritoId()); 
     
+    return response;
+
+
+
+
+
 
 }
-
-
-
-
-
-
-private BoletaCompraResponse mapADTO(BoletaCompra c){
-    return BoletaCompraResponse.builder()
-                .compraId(c.getId())
-                .usuario(c.getUsuario())
-                .montoTotal(c.getMontoTotal())
-                .estado(c.getEstado().name())
-                .fechaCompra(c.getFechaCompra())
-                .build();
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
