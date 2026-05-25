@@ -13,12 +13,12 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import lombok.AllArgsConstructor;
 @Entity
 @Table(name = "compras") 
 @Data 
 @NoArgsConstructor
-
+@AllArgsConstructor
 public class BoletaCompra {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
