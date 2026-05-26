@@ -17,13 +17,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="codigoms-carrito (2)" />
-        <module name="codigoms-catalogo" />
         <module name="codigoms-carrito (3)" />
+        <module name="codigoms-carrito (4)" />
+        <module name="codigoms-catalogo" />
         <module name="codigoms-carrito" />
         <module name="codigoms-pedidos" />
         <module name="codigoms-carrito (1)" />
       </profile>
-      <profile name="Annotation profile for codigoms_favoritos" enabled="true">
+      <profile name="Annotation profile for codigoms_wishlist" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -42,6 +43,7 @@
       <module name="codigoms-carrito (1)" options="-parameters" />
       <module name="codigoms-carrito (2)" options="-parameters" />
       <module name="codigoms-carrito (3)" options="-parameters" />
+      <module name="codigoms-carrito (4)" options="-parameters" />
       <module name="codigoms-catalogo" options="-parameters" />
       <module name="codigoms-pedidos" options="-parameters" />
       <module name="codigoms-resenas" options="-parameters" />
