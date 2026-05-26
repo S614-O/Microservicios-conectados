@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/codigoms-cupones/codigoms_cupones/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/codigoms-resenas/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/codigoms_anuncios/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/codigoms_carrito/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/codigoms_catalogo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/codigoms_favoritos/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/codigoms_pedidos/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/codigoms_wishlist/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/codigosms_boleta/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/codigosms_usuario/src/main/java" charset="UTF-8" />
+  </component>
+</project>

@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -19,6 +20,7 @@ import lombok.AllArgsConstructor;
 @Data 
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class BoletaCompra {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
