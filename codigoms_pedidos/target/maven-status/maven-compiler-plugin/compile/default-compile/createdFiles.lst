@@ -1,0 +1,3 @@
+com\servicio\pedidos\PedidosApplication.class
+com\servicio\pedidos\dto\LibroDTO.class
+com\servicio\pedidos\client\CatalogoClient.class
