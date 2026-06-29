@@ -4,10 +4,13 @@ Este repositorio contiene el desarrollo del sistema distribuido de gestión de i
 
 ##  Arquitectura y Tecnologías
 * **Backend:** Java con Spring Boot.
+* **Gestión de API**: Spring Cloud Gateway (Entry point centralizado).
 * **Persistencia:** JPA / Hibernate para el mapeo de entidades.
 * **Base de Datos:** MySQL (un motor independiente por cada microservicio).
 * **Herramientas de Productividad:** Lombok (reducción de código repetitivo) y Maven (gestor de dependencias). 
 * **Validaciones:** Spring Validation (`@NotNull`, `@NotBlank`, etc.) para asegurar la integridad de las peticiones.
+* **Documentación:** Swagger (OpenAPI) para documentación interactiva de endpoints.
+* **Testing**: JUnit 5 y Mockito para pruebas unitarias y de integración.
 
 ---
 
